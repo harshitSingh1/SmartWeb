@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SmartWeb</title>
+    <link href="style.css" rel="stylesheet">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <style>.btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 17rem;
+        height: 17rem;
+        background-size: 300% 300%;
+        backdrop-filter: blur(1rem);
+        border-radius: 1rem;
+        transition: 0.5s;
+        animation: gradient_301 5s ease infinite;
+        border: double 4px transparent;
+        background-image: linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%,#FE53BB 45%, #8F51EA 67%, #0044ff 87%);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+      }
+      
+      #container-stars {
+        position: fixed;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        transition: 0.5s;
+        backdrop-filter: blur(1rem);
+        border-radius: 1rem;
+      }
+      
+      strong {
+        z-index: 2;
+        font-family: 'Avalors Personal Use';
+        font-size: 40px;
+        letter-spacing: 5px;
+        color: #FFFFFF;
+        text-shadow: 0 0 4px white;
+      }
+      
+      #glow {
+        position: absolute;
+        display: flex;
+        width: 12rem;
+      }
+      
+      .circle {
+        width: 100%;
+        height: 30px;
+        filter: blur(2rem);
+        animation: pulse_3011 4s infinite;
+        z-index: -1;
+      }
+      
+      .circle:nth-of-type(1) {
+        background: rgba(254, 83, 186, 0.636);
+      }
+      
+      .circle:nth-of-type(2) {
+        background: rgba(142, 81, 234, 0.704);
+      }
+      
+      .btn:hover #container-stars {
+        z-index: 1;
+        background-color: #212121;
+      }
+      
+      .btn:hover {
+        transform: scale(1.1)
+      }
+      
+      .btn:active {
+        border: double 4px #FE53BB;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        animation: none;
+      }
+      
+      .btn:active .circle {
+        background: #FE53BB;
+      }
+      
+      #stars {
+        position: relative;
+        background: transparent;
+        width: 200rem;
+        height: 200rem;
+      }
+      
+      #stars::after {
+        content: "";
+        position: absolute;
+        top: -10rem;
+        left: -100rem;
+        width: 100%;
+        height: 100%;
+        animation: animStarRotate 90s linear infinite;
+      }
+      
+      #stars::after {
+        background-image: radial-gradient(#ffffff 1px, transparent 1%);
+        background-size: 50px 50px;
+      }
+      
+      #stars::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 170%;
+        height: 500%;
+        animation: animStar 60s linear infinite;
+      }
+      
+      #stars::before {
+        background-image: radial-gradient(#ffffff 1px, transparent 1%);
+        background-size: 50px 50px;
+        opacity: 0.5;
+      }
+      
+      @keyframes animStar {
+        from {
+          transform: translateY(0);
+        }
+      
+        to {
+          transform: translateY(-135rem);
+        }
+      }
+      
+      @keyframes animStarRotate {
+        from {
+          transform: rotate(360deg);
+        }
+      
+        to {
+          transform: rotate(0);
+        }
+      }
+      
+      @keyframes gradient_301 {
+        0% {
+          background-position: 0% 50%;
+        }
+      
+        50% {
+          background-position: 100% 50%;
+        }
+      
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      
+      @keyframes pulse_3011 {
+        0% {
+          transform: scale(0.75);
+          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+        }
+      
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+        }
+      
+        100% {
+          transform: scale(0.75);
+          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+      }</style>
+</head>
+<body>
+	<header class="navbar">
+		<div class="navbar-logo">
+			<img src="img/logo.png" alt="SmartWeb Logo">
+			<h1>SmartWeb</h1>
+		  </div>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="Services.html">Services</a></li>
+				<li><a href="#">Contact&emsp;</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<section class="hero">
+		<h1><Br>Add your favorite websites <br>- to your SmartWeb collection!</h1>
+	</section>
+	<div class="search-container">
+		<form id="search-form">
+		  <input type="text" placeholder="Search...">
+		  <button type="submit">Search</button>
+		</form>
+	  </div>
+	  <div class="theme-dropdown">
+		<label for="theme-select">Change Theme:<br></label>
+		<select id="theme-select">
+		  <option value="1">Theme 1</option>
+		  <option value="2">Theme 2</option>
+		  <option value="3">Theme 3</option>
+		  <option value="4">Theme 4</option>
+		</select>
+	  </div>
+	<div class="container">
+        <button onclick="addBox()" type="button" class="btn">
+            <strong>Click HERE to Add More Tools</strong>
+            <div id="container-stars">
+              <div id="stars"></div>
+            </div>
+            <div id="glow">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+          </button>          
+		<!-- <button onclick="addBox()">Add Box</button> -->
+	</div>
+  <br><br>
+  <footer>
+    <div class="row">
+        <div class="col">
+            <img src="img/logo1.png" class="footer_logo">
+            <p class="footer_about">SmartWeb helps you keep up to date with the newest AI tools out there - Choose the theme that suits you - you can easily find the right tools for you and your projects - You can also add your own website link or ai tool in your collections - AddTool button is for you - add tool and delete tool option available.
+            </p>
+        </div>
+        <div class="col">
+            <h3>Get in Touch <div class="bottom_line"><span></span></div></h3>
+            <p>TechZone 2, Greater Noida</p>
+            <p>Uttar Pradesh, 201310</p>
+            <p class="footer_email">sharshitsingh007@gamil.com</p>
+            <h4>+91 6394441778</h4>
+        </div>
+        <div class="col">
+            <h3>Links <div class="bottom_line"><span></span></div></h3>
+            
+                <a href="">HOME</a><br><br>
+                <a href="">ABOUT</a><br><br>
+                <a href="">SERVICE</a><br><br>
+                <a href="">CONTACT US</a>
+            
+        </div>
+        <div class="col">
+            <h3>Newsletter <div class="bottom_line"><span></span></div></h3>
+            <form>
+                <ion-icon class="icon" name="mail"></ion-icon>
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit"><ion-icon class="icon_right" name="arrow-round-forward"></ion-icon></button>
+            </form>
+            <div class="social_icons">
+                <ion-icon class="social_icon" name="logo-facebook"></ion-icon>
+                <ion-icon class="social_icon" name="logo-whatsapp"></ion-icon>
+                <ion-icon class="social_icon" name="logo-twitter"></ion-icon>
+                <ion-icon class="social_icon" name="logo-instagram"></ion-icon>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <p class="copyright">SmartWeb Ⓒ 2023 - All Rights Reserved</p>
+ </footer> 
+		<script>
+ function addBox() {
+  const url = prompt("Enter website URL:");
+  const img = prompt("Enter image URL:");
+  const desc = prompt("Enter description:");
+  
+  // Create the box element
+  const box = document.createElement("div");
+  box.classList.add("box");
+  
+  // Create the link element
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  
+  // Create the image element
+  const image = document.createElement("img");
+  image.src = img;
+  image.alt = "Example website";
+  image.style.width = "300px";
+  image.style.height = "130px";
+  
+  // Create the description element
+  const p = document.createElement("p");
+  p.textContent = desc;
+  
+  // Create the delete button element
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+  deleteBtn.addEventListener("click", () => {
+    box.remove(); // Remove the box element from the DOM
+    let boxes = JSON.parse(localStorage.getItem("boxes")) || [];
+    boxes = boxes.filter(b => b.url !== url && b.img !== img && b.desc !== desc);
+    localStorage.setItem("boxes", JSON.stringify(boxes)); // Update the Local Storage
+  });
+  
+  // Append the image and description elements to the link element
+  link.appendChild(image);
+  link.appendChild(p);
+  
+  // Append the link element and delete button element to the box element
+  box.appendChild(link);
+  box.appendChild(deleteBtn);
+  
+  // Append the box element to the add_box container
+  const addBoxContainer = document.querySelector(".container");
+  addBoxContainer.appendChild(box);
+  
+  // Store the box data in the Local Storage
+  const boxData = {
+    url: url,
+    img: img,
+    desc: desc
+  };
+  let boxes = JSON.parse(localStorage.getItem("boxes")) || [];
+  boxes.push(boxData);
+  localStorage.setItem("boxes", JSON.stringify(boxes));
+}
+window.addEventListener("load", () => {
+  const boxes = JSON.parse(localStorage.getItem("boxes")) || [];
+  const addBoxContainer = document.querySelector(".container");
+  for (const boxData of boxes) {
+    const { url, img, desc } = boxData;
+    const box = document.createElement("div");
+    box.classList.add("box");
+    const link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    const image = document.createElement("img");
+    image.src = img;
+    image.alt = "Example website";
+    image.style.width = "300px";
+    image.style.height = "130px";
+    const p = document.createElement("p");
+    p.textContent = desc;
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click", () => {
+      box.remove();
+      let boxes = JSON.parse(localStorage.getItem("boxes")) || [];
+      boxes = boxes.filter(b => b.url !== url && b.img !== img && b.desc !== desc);
+      localStorage.setItem("boxes", JSON.stringify(boxes));
+    });
+    link.appendChild(image);
+    link.appendChild(p);
+    box.appendChild(link);
+    box.appendChild(deleteBtn);
+    addBoxContainer.appendChild(box);
+  }
+});
+
+
+</script>
+</body>
+</html>
